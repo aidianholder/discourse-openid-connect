@@ -141,6 +141,12 @@ module ::OmniAuth
 
           verbose_log("Verified JWT\n\n#{decoded.to_yaml}")
           verbose_log("#{decoded}")
+          hmac_secret = "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvPW9eZXbDBc6n7AI1bL1"
+          auth0 = decoded["sub"]
+          new_payload = {"auth0":auth0}
+          blaize_JWT = JWT.encode new_payload, hmac_secret, 'HS256'
+
+          cookies[:Blaize_JWT] = blaize_JWT
 
           decoded
         end
