@@ -140,6 +140,7 @@ module ::OmniAuth
           end
 
           verbose_log("Verified JWT\n\n#{decoded.to_yaml}")
+          verbose_log("#{decoded}")
 
           decoded
         end
