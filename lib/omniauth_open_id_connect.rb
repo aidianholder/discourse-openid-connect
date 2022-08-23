@@ -146,7 +146,7 @@ module ::OmniAuth
           new_payload = {"auth0":auth0}
           blaize_JWT = JWT.encode new_payload, hmac_secret, 'HS256'
           verbose_log("#{session.to_yaml}")
-          cookies.permanent[:blaize_JWT] = blaize_JWT
+          verbose_log("#{request.cookies.to_yaml}")
           verbose_log("#{session.to_yaml}")
           verbose_log("#{blaize_JWT}")
 
