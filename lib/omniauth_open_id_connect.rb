@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'omniauth-oauth2'
-include ActionController::Cookies
+
 
 module ::OmniAuth
   module OpenIDConnect
@@ -11,6 +11,8 @@ module ::OmniAuth
   module Strategies
     class OpenIDConnect < OmniAuth::Strategies::OAuth2
       class NonceVerifyError < StandardError; end
+
+    include ActionController::Cookies
 
       option :scope, "openid"
       option :discovery, true
