@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 require 'omniauth-oauth2'
-require ActionController::Cookies
-require Response
+include ActionController::Cookies
 
 module ::OmniAuth
   module OpenIDConnect
